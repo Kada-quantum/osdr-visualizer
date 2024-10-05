@@ -4,7 +4,7 @@
   <head>
     <title>Page Title</title>
     <script type="module">
-    import init, {make_svg} from "{% static 'svg-wasm/pkg/svg_wasm.js' %}";
+    import init, {make_svg} from "{% static 'pkg/svg_wasm.js' %}";
     init().then(() => {
           function event() {
             const input = document.getElementById("msg");
