@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <title>Page Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js" integrity="sha512-tBzZQxySO5q5lqwLWfu8Q+o4VkTcRGOeQGVQ0ueJga4A1RKuzmAu5HXDOXLEjpbKyV7ow9ympVoa6wZLEzRzDg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.18.0/flowchart.min.js" integrity="sha512-FX1RpRt8RDEtTiFbDxg4u62QUJXhVE+cVE1mBD0iSOpj/ZZ/VNyZKlwhBT39QMcP5KEYS3yU8wh6Qpa57qVnbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+      body { min-height: 100vh; }
+      * {
+        border: 0;
+        margin: 0;
+      }
+      #draw {
+        height: 93vh;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="msg" name="msg" placeholder="Enter Text" size="10" />
+    <button id="generate" name="generate">Generate SVG</button>
+    <div id="draw"></div>
+  </body>
+  <script>
+    var btn = document.getElementById("generate");
+    (btn.onclick = function () {
+    var diagram = flowchart.parse(`st=>start: Start:>http://www.google.com[blank]
+e=>end:>http://www.google.com
+op1=>operation: My Operation
+sub1=>subroutine: My Subroutine
+cond=>condition: Yes
+or No?:>http://www.google.com
+io=>inputoutput: catch something...
+para=>parallel: parallel tasks
+in=>input: some in
+out=>output: some out
+
+st->op1->cond
+cond(yes)->io->e
+cond(no)->para
+para(path1, bottom)->sub1(right)->op1
+para(path2, top)->op1
+para(path3, right)->in->out->e`);
+    diagram.drawSVG('draw');
+    });
+  </script>
+</html> 
