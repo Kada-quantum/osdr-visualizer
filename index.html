@@ -9,27 +9,21 @@
           function event() {
             const input = document.getElementById("msg");
             const draw = document.getElementById("draw");
+            const width = draw.clientWidth;
+            const height = draw.clientHeight;
             const msg = input.value;
-            var xmlhttp = new XMLHttpRequest();
-            var url = "https://osdr.nasa.gov/osdr/data/osd/meta/"+msg;
-
-            var arr = [];
-            xmlhttp.onreadystatechange = function() {
-              if (this.readyState == 4 && this.status == 200) {
-                arr = JSON.parse(this.responseText);
-                console.log(arr);
-              }
-            };
-            xmlhttp.open("GET", url, true);
-            xmlhttp.send();
-
-            const out = make_svg(msg);
-            console.log(out);
+            const out = make_svg(msg, width, height);
             draw.innerHTML = out;
           }
           document.getElementById("generate").addEventListener("click", event);
       });
     </script>
+    <style>
+      div {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
     <input type="text" id="msg" name="msg" placeholder="Enter Text" size="10" />

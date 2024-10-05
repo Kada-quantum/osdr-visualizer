@@ -2,45 +2,18 @@ mod utils;
 
 use wasm_bindgen::prelude::*;
 
-#[wasm_bindgen]
-extern "C" {
-    fn alert(s: &str);
-}
-
-#[wasm_bindgen]
-pub fn greet() {
-    alert("Hello, svg-wasm!");
-}
-
 use esvg::page::{Borders, Page};
 use esvg::{create_document, Element};
 use polygonical::point::Point;
 
-fn pos2point(e: &Element) -> Point {
-    let x = if let Some(i) = e.get("cx") {
-        i.parse().unwrap()
-    } else if let Some(i) = e.get("x") {
-        i.parse().unwrap()
-    } else {
-        panic!("could not find location")
-    };
-    let y = if let Some(i) = e.get("cy") {
-        i.parse().unwrap()
-    } else if let Some(i) = e.get("y") {
-        i.parse().unwrap()
-    } else {
-        panic!("could not find location")
-    };
-    Point { x, y }
-}
-
 #[wasm_bindgen]
-pub fn make_svg(msg: String) -> String {
+pub fn make_svg(msg: String, width: i32, height: i32, dpi: i32) -> String {
+    utils::set_panic_hook();
     let page = Page {
-        dpi: 91,
-        height: 500,
-        width: 500,
-        borders: Borders::default(91),
+        dpi,
+        height,
+        width,
+        borders: Borders::even(0., dpi),
     };
     let mut doc = create_document(&page);
 
@@ -48,7 +21,11 @@ pub fn make_svg(msg: String) -> String {
     group.set("class", "foo");
 
     let mut circle = esvg::shapes::circle(page.center(), 50);
-    let mut rect = esvg::shapes::rectangle(page.center_top(), 50., 50.);
+    let mut rect = esvg::shapes::rectangle(
+        page.center_top().translate(&Point { x: 0., y: 50. }),
+        50.,
+        50.,
+    );
     let mut ellipse = esvg::shapes::ellipse(Point { x: 300., y: 300. }, 30., 100.);
     ellipse.add_style("fill", "green");
     circle.add_style("stroke", "red");
@@ -57,7 +34,7 @@ pub fn make_svg(msg: String) -> String {
     rect.set("transform", "translate(-25,-25)");
     let mut text = esvg::text::create_text(
         msg.clone(),
-        pos2point(&circle),
+        utils::pos2point(&circle),
         &esvg::text::create_text_style("sans-serif", 32, "normal", 0.3, "black", "", 1.),
     );
     text.set("text-anchor", "middle");
@@ -67,7 +44,7 @@ pub fn make_svg(msg: String) -> String {
     group2.set("class", "foo1");
     let mut text = esvg::text::create_text(
         msg.clone(),
-        pos2point(&rect),
+        utils::pos2point(&rect),
         &esvg::text::create_text_style("sans-serif", 32, "normal", 0.3, "white", "black", 1.),
     );
     text.set("text-anchor", "middle");
