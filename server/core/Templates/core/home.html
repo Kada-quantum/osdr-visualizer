@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+    {% load static %}
+  <head>
+    <title>Page Title</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+  </head>
+  <body>
+    <p>Some Text</p>
+    <img src="{% static 'image.svg' %}" alt="SVG Image" />
+    <!--Can also include the svg info itself into html-->
+    <svg height="139.56043956043956mm" viewBox="0, 0, 500, 500" width="139.56043956043956mm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <ellipse cx="300" cy="300" rx="30" ry="100" style="fill:green" />
+      <g class="foo">
+        <circle cx="250" cy="250" fill="none" r="50" style="stroke:red" />
+        <text style="font-family:sans-serif;font-size:32;font-weight:normal;stroke-width:0.3;fill:black;stroke:;stroke-opacity:1;" text-anchor="middle" x="250" y="250">
+          hello
+        </text>
+      </g>
+      <g class="foo1">
+        <rect height="50" style="stroke:#0323f3;fill:#00000000" transform="translate(-25,-25)" width="50" x="225" y="21" />
+        <text style="font-family:sans-serif;font-size:32;font-weight:normal;stroke-width:0.3;fill:white;stroke:black;stroke-opacity:1;" text-anchor="middle" x="225" y="21">
+          
+        </text>
+      </g>
+    </svg>
+  </body>
+</html> 
