@@ -11,3 +11,4 @@ version = "0.1.0"
 [dependencies]
 python = ">=3.12.7,<4"
 django = ">=5.1.1,<6"
+rust = ">=1.81.0,<2"
