@@ -1,5 +1,7 @@
+mod chart;
 mod utils;
 
+use chart::ChartBuilder;
 use wasm_bindgen::prelude::*;
 
 use esvg::page::{Borders, Page};
@@ -7,7 +9,7 @@ use esvg::{create_document, Element};
 use polygonical::point::Point;
 
 #[wasm_bindgen]
-pub fn make_svg(msg: String, width: i32, height: i32, dpi: i32) -> String {
+pub fn make_chart(msg: String, width: i32, height: i32, dpi: i32) -> String {
     utils::set_panic_hook();
     let page = Page {
         dpi,
@@ -16,6 +18,9 @@ pub fn make_svg(msg: String, width: i32, height: i32, dpi: i32) -> String {
         borders: Borders::even(0., dpi),
     };
     let mut doc = create_document(&page);
+
+    let chart = ChartBuilder::new().append_node().build();
+    let a = utils::construct_arrow(utils::Direction::Up);
 
     let mut group = Element::new("g");
     group.set("class", "foo");
@@ -54,6 +59,7 @@ pub fn make_svg(msg: String, width: i32, height: i32, dpi: i32) -> String {
     doc.add(&ellipse);
     doc.add(&group);
     doc.add(&group2);
+    doc.add(&a);
     let mut result = doc.to_pretty_string();
     result = result.split('\n').skip(2).collect();
     result
