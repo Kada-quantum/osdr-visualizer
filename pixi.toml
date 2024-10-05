@@ -11,3 +11,4 @@ version = "0.1.0"
 [dependencies]
 python = ">=3.12.7,<4"
 django = ">=5.1.1,<6"
+ollama-python = ">=0.3.3,<0.4"
