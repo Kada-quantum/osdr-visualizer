@@ -7,6 +7,10 @@ https://github.com/user-attachments/assets/45f5ffee-354b-4028-ac32-d84b7dd95b8e
 # Usage
  - Install [Pixi](https://prefix.dev/)
  - Install [Ollama](https://ollama.com/)
+ - Download llama3.2:
+   ```
+   $ ollama pull llama3.2
+   ```
  - Clone:
    ```
    $ git clone https://github.com/Kada-quantum/osdr-visualizer.git
