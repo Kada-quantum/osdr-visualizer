@@ -1,25 +1,29 @@
 <!DOCTYPE html>
-{% load static %}
-<html>
-  <head>
-    <title>Page Title</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js" integrity="sha512-tBzZQxySO5q5lqwLWfu8Q+o4VkTcRGOeQGVQ0ueJga4A1RKuzmAu5HXDOXLEjpbKyV7ow9ympVoa6wZLEzRzDg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.18.0/flowchart.min.js" integrity="sha512-FX1RpRt8RDEtTiFbDxg4u62QUJXhVE+cVE1mBD0iSOpj/ZZ/VNyZKlwhBT39QMcP5KEYS3yU8wh6Qpa57qVnbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Generated Steps</title>
     <style>
-      body { min-height: 100vh; }
-      * {
-        border: 0;
-        margin: 0;
-      }
-      #draw {
-        height: 93vh;
-      }
+    #ul1
+    {
+        display: none;
+        width: 0px;
+        height: 0px;
+    }
     </style>
-  </head>
-  <body>
-    <input type="text" id="msg" name="msg" placeholder="Enter Text" size="10" />
-    <button id="generate" name="generate">Generate SVG</button>
+</head>
+<body>
+    <h1>Generated Step-by-Step Process</h1>
+    <ul id="ul1">
+        {% for step in steps %}
+        <li>{{ step }}</li>
+        {% endfor %}
+    </ul>
     <div id="draw"></div>
-  </body>
-  <script src="{% static 'array2flowchart.js' %}"></script>
-</html> 
+    <a href="/">Go back</a>
+</body>
+<script src="{{url_for('static', filename='array2flowchart.js')}}"></script>
+</html>
