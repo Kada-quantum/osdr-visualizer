@@ -5,13 +5,15 @@ import json
 from ollama import Client
 
 app = Flask(__name__)
-model='llama3.2'
+model = 'llama3.2'
 # model='llama3.2:3b-instruct-fp16'
+address = 'localhost'
+port = '11434'
 
 # Set up the Ollama call as a function
 def call_ollama_api(description):
-    global model
-    client = Client(host='http://localhost:11434')
+    global model, address, port
+    client = Client(host=f'http://{address}:{port}')
 
     stream = client.generate(
                                model,
@@ -107,7 +109,13 @@ def result2():
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-m", "--model", help = "Set ollama model [default: llama3.2]")
+    parser.add_argument("-a", "--address", help = "Set ollama server address [default: localhost]")
+    parser.add_argument("-p", "--port", help = "Set ollama server port [default: 11434]")
     args = parser.parse_args()
     if args.model:
         model = args.model
+    if args.address:
+        adress = args.address
+    if args.port:
+        port = args.port
     app.run(debug=True)
