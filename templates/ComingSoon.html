@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OSD Code Input - Space Theme</title>
+        <style>
+        /* Background and Font */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: url(StarryNightBackground.jpg) no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(0, 0, 50, 0.6);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            width: 400px;
+        }
+
+        h1 {
+            color: #8ec6ff;
+            margin-bottom: 20px;
+            font-size: 50px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+
+        input[type="text"] {
+            padding: 12px 20px;
+            margin: 10px 0;
+            border: 2px solid #00c6ff;
+            background-color: rgba(0, 0, 50, 0.8);
+            color: #ffffff;
+            font-size: 18px;
+            border-radius: 5px;
+            width: 100%;
+            text-align: center;
+            transition: border-color 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #7f00ff;
+            box-shadow: 0 0 15px rgba(127, 0, 255, 0.7);
+        }
+
+        input[type="text"]::placeholder {
+            color: #b0c6ff;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #7f00ff;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+            width: 100%;
+            box-shadow: 0 0 20px rgba(127, 0, 255, 0.7);
+        }
+
+        button:hover {
+            background-color: #00c6ff;
+            box-shadow: 0 0 25px rgba(0, 198, 255, 1);
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 25px rgba(127, 0, 255, 1);
+        }
+        </style>
+    </head>
+    <body>
+        <div class="input-container">
+        <h1>Coming Soon</h1>
+        </div>
+    </body>

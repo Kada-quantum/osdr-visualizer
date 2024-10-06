@@ -28,6 +28,8 @@ function get_result() {
   for (var j = 0, m = items.length; j < m; j++) {
     var str = items[j].innerHTML;
     if (result.indexOf(str) == -1) {
+      str = str.replaceAll("*", "");
+      str = str.replace(": ", "\n");
       result.push(str);
     }
   }

@@ -3,14 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSD scraper</title>
+    <title>NASA OSD Scraper</title>
+    <style>
+        /* Background and Font */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: url('/static/StarryNightBackground.jpg') no-repeat center center fixed; /* Updated for Flask */
+            background-size: cover;
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 0.5px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(0, 0, 50, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            width: 400px;
+            transition: transform 0.3s ease;
+            position: relative; /* Allow for relative positioning */
+            left: -20px; /* Move to the left by 20 pixels, adjust as needed */
+        }
+
+        .input-container:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+            text-align: center; /* Centered */
+        }
+
+        h2 {
+            color: #8ec6ff;
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+            text-align: center; /* Centered */
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #b0c6ff;
+            text-align: center; /* Centered */
+        }
+
+        input[type="text"] {
+            padding: 12px 20px;
+            margin: 10px 0;
+            border: 2px solid #00c6ff;
+            background-color: rgba(0, 0, 50, 0.9);
+            color: #ffffff;
+            font-size: 18px;
+            border-radius: 5px;
+            width: 90%;
+            text-align: center;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #7f00ff;
+            box-shadow: 0 0 15px rgba(127, 0, 255, 0.7);
+        }
+
+        input[type="text"]::placeholder {
+            color: #b0c6ff;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #7f00ff;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+            width: 100%;
+            box-shadow: 0 0 20px rgba(127, 0, 255, 0.7);
+        }
+
+        button:hover {
+            background-color: #00c6ff;
+            box-shadow: 0 0 25px rgba(0, 198, 255, 1);
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 25px rgba(127, 0, 255, 1);
+        }
+
+        @media (max-width: 480px) {
+            .input-container {
+                width: 90%;
+            }
+        }
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 10px 20px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <h1>NASA OSD Scraper</h1>
-    <form action="/result" method="post">
-        <label for="osd_number">Enter OSD Number:</label>
-        <input type="text" id="osd_number" name="osd_number" required>
-        <button type="submit">Submit</button>
-    </form>
+    <div class="input-container">
+        <h1>NASA OSD Scraper</h1>
+        <h2>Enter OSD Number:</h2>
+        <form action="/result" method="post">
+            <label for="osd_number">OSD Number:</label>
+            <input type="text" id="osd_number" name="osd_number" placeholder="Enter number here" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="back-button">
+        <button onclick="history.back()" style="border-radius: 50px;">Go Back</button>
+    </div>
 </body>
 </html>
