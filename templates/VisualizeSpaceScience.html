@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualize Space Science</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .grey_background {
+            background-color: grey;
+            padding: 20px;
+        }
+        .center_text {
+            text-align: center;
+        }
+        .image_container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .image_container img {
+            height: 737px;
+            text-align: center; /* Center-aligns images */
+        }
+    </style>
+</head>
+<body>
+    <div class="grey_background">
+        <div class="center_text">
+            <h1>Visualize Space Science</h1>
+        </div>
+    </div>
+
+    <div class="image_container">
+        <a href="/input" >
+            <img src="{{ url_for('static', filename='BaldGuyGen4.png') }}" alt="Bald Guy Graphic">
+        </a>
+        <a href="/input2" >
+            <img src="{{ url_for('static', filename='DesignYourOwnPlanetsGen3.png') }}" alt="Design Your Own Planets Graphic">
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Disable scrolling */
+    background: rgb(38, 38, 38);
+    color: #ababad;
+    font-family: "Orbitron", sans-serif; /* Updated to a futuristic, cyberpunk font */
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    position: relative;
+    cursor: default; /* Ensure default cursor is visible */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background: linear-gradient(to right, #0b0d1a 0%, #2e2d5c 50%, #0b0d1a 100%); /* Space-like gradient with deep indigos, purples, and blues */
+    color: #e0e0e0; /* Slightly lighter text for better contrast against dark gradient */
+    width: 90%; /* Adjust width slightly to fit inside the page */
+    margin: 20px auto; /* Center the container and add top/bottom margin */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+    padding: 20px 0; /* Add spacing around the content */
+    border-radius: 25px; /* Increase border-radius to make the banner less boxy */
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+    cursor: default; /* Ensure default cursor stays visible */
+}
+
+.container:hover {
+    background: linear-gradient(to right, #1e0033 0%, #40187d 50%, #1e0033 100%); /* Symmetrical hover background shift */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.6); /* Subtle shadow enhancement */
+}
+
+h1 {
+    color: #e0e0e0;
+    font-family: "Orbitron", sans-serif;
+    font-size: 6rem; /* Significantly larger title */
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.6), 0px 0px 12px rgba(0, 0, 255, 0.4); /* Subtle glowing effect */
+    transition: transform 0.3s ease;
+    cursor: default; /* Ensure cursor is visible when hovering over the title */
+}
+
+h1:hover {
+    transform: translateY(-5px); /* Slight lift when hovered */
+}
+
+.vertical {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.horizontal {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.horizontal-container {
+    display: flex;
+    height: 100%;
+    width: 300vw;
+}
+
+.horizontal-item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+table:hover {
+    transform: translateY(-3px); /* Subtle lift on hover */
+}
+  
+table td, table th {
+    vertical-align: middle;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.center_text {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    align-items: center;
+    font-size: 35px;
+}
+
+.grey_background {
+    background: linear-gradient(135deg, #0b0d1a, #2e2d5c, #3f2a76, #0d1f50);
+}
+
+.image_container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; /* Add even spacing between images */
+    padding: 20px; /* Add padding around images */
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(0.85); /* Original hover zoom animation */
+}
+
+input {
+    text-align: center;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+a {
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    padding: 8px 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+a:hover {
+    transform: scale(0.85); /* Keep the original scale hover effect for links */
+    background-color: rgba(255, 255, 255, 0.2);
+}
